@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #FFF8F0;
+  --color-warm-white: #FFFDF9;
+  --color-forest: #2D5016;
+  --color-forest-light: #4A7C28;
+  --color-sky: #4A90D9;
+  --color-sky-light: #7CB8F0;
+  --color-earth: #8B6914;
+  --color-earth-light: #C49A2A;
+  --color-ocean: #1A6B8A;
+  --color-ocean-light: #2A9BC0;
+  --color-sunset: #D4652A;
+  --color-sunset-light: #E8884D;
+  --color-berry: #8B2252;
+  --color-tag-strong: #DC2626;
+  --color-tag-fast: #F59E0B;
+  --color-tag-big: #7C3AED;
+  --color-tag-cute: #EC4899;
+  --color-tag-weird: #10B981;
+  --color-tag-scary: #1F2937;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-cream);
+  color: #333;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* 子ども向けスクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* ページ遷移のフェードイン */
+main {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
