@@ -233,10 +233,10 @@ export const animals: Animal[] = [
     videos: [
       {
         provider: "youtube",
-        videoId: "vV6Y7NJiZcY",
-        embedUrl: "https://www.youtube.com/embed/vV6Y7NJiZcY",
-        sourcePageUrl: "https://www.youtube.com/watch?v=vV6Y7NJiZcY",
-        title: "How Penguins Take Flight | Nat Geo Kids",
+        videoId: "4PwDFddpo4c",
+        embedUrl: "https://www.youtube.com/embed/4PwDFddpo4c",
+        sourcePageUrl: "https://www.youtube.com/watch?v=4PwDFddpo4c",
+        title: "Emperor Penguin Chicks Jump Off a 50-Foot Cliff | Nat Geo",
         durationSec: 180,
       },
     ],
@@ -2768,10 +2768,10 @@ export const animals: Animal[] = [
     videos: [
       {
         provider: "youtube",
-        videoId: "_StchC2h9PU",
-        embedUrl: "https://www.youtube.com/embed/_StchC2h9PU",
-        sourcePageUrl: "https://www.youtube.com/watch?v=_StchC2h9PU",
-        title: "All About Ostriches! | Highlights Kids",
+        videoId: "qtm5Yp3YU68",
+        embedUrl: "https://www.youtube.com/embed/qtm5Yp3YU68",
+        sourcePageUrl: "https://www.youtube.com/watch?v=qtm5Yp3YU68",
+        title: "Baby Ostriches try to Survive Desert Heat | BBC Earth",
         durationSec: 180,
       },
     ],
