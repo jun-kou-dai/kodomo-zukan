@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { animals, getFeaturedAnimals } from "@/data/animals";
 import { AnimalCard } from "@/components/AnimalCard";
+import { TodayAnimal } from "@/components/TodayAnimal";
 import { ThemeTag } from "@/types/animal";
 
 const habitatSections = [
@@ -19,18 +20,8 @@ const themeSections: { key: ThemeTag; label: string; emoji: string; color: strin
   { key: "こわい", label: "こわい", emoji: "😱", color: "from-gray-500 to-gray-700" },
 ];
 
-function getTodayAnimal() {
-  const today = new Date();
-  const dayOfYear = Math.floor(
-    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) /
-      (1000 * 60 * 60 * 24)
-  );
-  return animals[dayOfYear % animals.length];
-}
-
 export default function HomePage() {
   const featured = getFeaturedAnimals().slice(0, 6);
-  const todayAnimal = getTodayAnimal();
 
   return (
     <main className="pb-12">
@@ -53,34 +44,7 @@ export default function HomePage() {
       </section>
 
       {/* きょうの どうぶつ */}
-      <section className="px-4 mt-6">
-        <h2 className="text-lg font-bold text-gray-700 mb-3 px-1">
-          📅 きょうの どうぶつ
-        </h2>
-        <Link href={`/animals/${todayAnimal.id}`}>
-          <div className="relative rounded-2xl overflow-hidden shadow-md h-72">
-            {todayAnimal.images[0] && (
-              <Image
-                src={todayAnimal.images[0].url}
-                alt={todayAnimal.japaneseName}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 p-4">
-              <p className="text-white text-2xl font-bold">
-                {todayAnimal.japaneseName}
-              </p>
-              <p className="text-white/80 text-sm mt-1 line-clamp-1">
-                {todayAnimal.childSummary}
-              </p>
-            </div>
-          </div>
-        </Link>
-      </section>
+      <TodayAnimal />
 
       {/* にんきの どうぶつ */}
       <section className="px-4 mt-8">
