@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { animals, searchAnimals, getAnimalsByTag, getAnimalsByClass } from "@/data/animals";
+import { animals, searchAnimals } from "@/data/animals";
 import { AnimalCard } from "@/components/AnimalCard";
 import { AnimalClass, Habitat, ThemeTag } from "@/types/animal";
 import { Suspense } from "react";

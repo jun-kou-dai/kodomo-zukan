@@ -1,4 +1,4 @@
-import { Animal } from "@/types/animal";
+import { Animal, ThemeTag } from "@/types/animal";
 
 export const animals: Animal[] = [
   {
@@ -2799,7 +2799,7 @@ export function getAnimalsByHabitat(habitat: string): Animal[] {
 }
 
 export function getAnimalsByTag(tag: string): Animal[] {
-  return animals.filter((a) => a.tags.includes(tag as any));
+  return animals.filter((a) => a.tags.includes(tag as ThemeTag));
 }
 
 export function getFeaturedAnimals(): Animal[] {

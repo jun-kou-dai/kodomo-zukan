@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { animals } from "@/data/animals";
@@ -15,12 +15,14 @@ function getTodayAnimal(): Animal {
   return animals[dayOfYear % animals.length];
 }
 
-export function TodayAnimal() {
-  const [animal, setAnimal] = useState<Animal | null>(null);
+const subscribe = () => () => {};
 
-  useEffect(() => {
-    setAnimal(getTodayAnimal());
-  }, []);
+export function TodayAnimal() {
+  const animal = useSyncExternalStore<Animal | null>(
+    subscribe,
+    getTodayAnimal,
+    () => null
+  );
 
   if (!animal) {
     return (

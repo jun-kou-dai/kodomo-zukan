@@ -42,7 +42,6 @@ function CompareContent() {
           value={animalAId}
           onChange={setAnimalAId}
           exclude={animalBId}
-          label="ひだり"
         />
         <div className="flex items-center">
           <span className="text-xl font-bold text-amber-400">VS</span>
@@ -51,7 +50,6 @@ function CompareContent() {
           value={animalBId}
           onChange={setAnimalBId}
           exclude={animalAId}
-          label="みぎ"
         />
       </div>
 
@@ -154,12 +152,10 @@ function AnimalSelector({
   value,
   onChange,
   exclude,
-  label,
 }: {
   value: string;
   onChange: (v: string) => void;
   exclude: string;
-  label: string;
 }) {
   return (
     <select
