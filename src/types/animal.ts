@@ -69,6 +69,7 @@ export interface Animal {
   lifespanText: string;
   childSummary: string;
   childSecret: string;
+  compareHeightCm?: number;
   tags: ThemeTag[];
   featuredFlag: boolean;
   popularityRank: number;

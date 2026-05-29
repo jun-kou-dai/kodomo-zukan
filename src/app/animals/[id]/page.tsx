@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { animals, getAnimalById } from "@/data/animals";
 import { TagBadge } from "@/components/TagBadge";
 import { MediaButtons } from "@/components/MediaButtons";
+import { SizeCompare } from "@/components/SizeCompare";
 import { FullscreenImage } from "@/components/FullscreenImage";
 import { ShareButton } from "@/components/ShareButton";
 
@@ -143,6 +144,15 @@ export default async function AnimalDetailPage({
             　がくめい: <span className="italic">{animal.scientificName}</span>
           </p>
         </section>
+
+        {/* きみと くらべて */}
+        {animal.compareHeightCm && (
+          <SizeCompare
+            animalName={animal.japaneseName}
+            animalHeightCm={animal.compareHeightCm}
+            photoUrl={primaryImage?.url}
+          />
+        )}
 
         {/* ひみつ */}
         <section className="bg-amber-50 rounded-2xl p-5 border-2 border-amber-100">

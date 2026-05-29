@@ -85,6 +85,7 @@ export const animals: Animal[] = [
       "アフリカゾウは りくの うえで いちばん おおきな どうぶつ。ながい はなで みずを すったり、たべものを つかんだり するよ。",
     childSecret:
       "ゾウの はなには やく 4まんの きんにくが あるんだよ！ちいさな ピーナッツも つかめるよ。",
+    compareHeightCm: 350,
     tags: ["おおきい", "つよい"],
     featuredFlag: true,
     popularityRank: 2,
@@ -149,6 +150,7 @@ export const animals: Animal[] = [
       "キリンは せかいで いちばん せが たかい どうぶつ。ながい くびで たかい きの はっぱを たべるよ。",
     childSecret:
       "キリンの したは やく 50センチも あるよ！そして むらさきいろ なんだ。",
+    compareHeightCm: 550,
     tags: ["おおきい", "かわいい"],
     featuredFlag: true,
     popularityRank: 3,
