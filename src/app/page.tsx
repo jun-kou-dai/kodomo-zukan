@@ -41,6 +41,15 @@ export default function HomePage() {
           <span className="text-xl">🔍</span>
           <span>どうぶつを さがす</span>
         </Link>
+        <Link
+          href="/ranking"
+          className="mt-3 flex items-center gap-3 bg-gradient-to-r from-amber-400 to-yellow-500
+                     rounded-2xl px-5 py-3.5 text-white font-bold text-base shadow-md
+                     hover:brightness-105 active:scale-95 transition-all"
+        >
+          <span className="text-xl">🏆</span>
+          <span>どうぶつ いちばん ランキング</span>
+        </Link>
       </section>
 
       {/* きょうの どうぶつ */}

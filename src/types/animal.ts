@@ -70,6 +70,11 @@ export interface Animal {
   childSummary: string;
   childSecret: string;
   compareHeightCm?: number;
+  // ランキング用の数値（テキストから抽出した代表値）。単位: km/h, kg, cm, 年
+  speedKmh?: number;
+  weightKg?: number;
+  sizeCm?: number;
+  lifespanYears?: number;
   tags: ThemeTag[];
   featuredFlag: boolean;
   popularityRank: number;
