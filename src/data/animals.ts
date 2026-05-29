@@ -3,6 +3,7 @@ import { Animal, ThemeTag } from "@/types/animal";
 export const animals: Animal[] = [
   {
     id: "lion",
+    biteForcePsi: 650,
     speedKmh: 60,
     weightKg: 250,
     sizeCm: 250,
@@ -270,6 +271,7 @@ export const animals: Animal[] = [
   },
   {
     id: "tiger",
+    biteForcePsi: 1050,
     speedKmh: 60,
     weightKg: 260,
     sizeCm: 300,
@@ -665,6 +667,7 @@ export const animals: Animal[] = [
   },
   {
     id: "gorilla",
+    biteForcePsi: 1300,
     speedKmh: 40,
     weightKg: 180,
     sizeCm: 170,
@@ -734,6 +737,7 @@ export const animals: Animal[] = [
   },
   {
     id: "shark",
+    biteForcePsi: 625,
     speedKmh: 40,
     weightKg: 1100,
     sizeCm: 500,
@@ -922,6 +926,7 @@ export const animals: Animal[] = [
   },
   {
     id: "crocodile",
+    biteForcePsi: 3700,
     speedKmh: 24,
     weightKg: 500,
     sizeCm: 500,
@@ -1428,6 +1433,7 @@ export const animals: Animal[] = [
   },
   {
     id: "hippo",
+    biteForcePsi: 1800,
     speedKmh: 30,
     weightKg: 3200,
     sizeCm: 400,
@@ -1496,6 +1502,7 @@ export const animals: Animal[] = [
   },
   {
     id: "wolf",
+    biteForcePsi: 400,
     speedKmh: 60,
     weightKg: 65,
     sizeCm: 150,
@@ -2799,6 +2806,7 @@ export const animals: Animal[] = [
   },
   {
     id: "polar-bear",
+    biteForcePsi: 1200,
     speedKmh: 40,
     weightKg: 700,
     sizeCm: 250,

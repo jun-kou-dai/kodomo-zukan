@@ -75,6 +75,7 @@ export interface Animal {
   weightKg?: number;
   sizeCm?: number;
   lifespanYears?: number;
+  biteForcePsi?: number; // かむ力（つよさランキング用）。捕食者・大型獣のみ
   tags: ThemeTag[];
   featuredFlag: boolean;
   popularityRank: number;

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { animals } from "@/data/animals";
 import { Animal } from "@/types/animal";
 
-type AxisKey = "speed" | "weight" | "size" | "life";
+type AxisKey = "strong" | "speed" | "weight" | "size" | "life";
 
 type Axis = {
   key: AxisKey;
@@ -44,6 +44,16 @@ function fmtLife(y: number): string {
 }
 
 const AXES: Axis[] = [
+  {
+    key: "strong",
+    label: "つよい",
+    emoji: "💪",
+    color: "from-red-400 to-rose-500",
+    ring: "ring-red-300",
+    value: (a) => a.biteForcePsi,
+    format: (v) => `かむ力 ${v}`,
+    topPhrase: "どうぶつの なかで いちばん つよい！",
+  },
   {
     key: "speed",
     label: "はやい",
@@ -96,7 +106,7 @@ function rank(axis: Axis): { animal: Animal; v: number }[] {
 }
 
 export default function RankingPage() {
-  const [axisKey, setAxisKey] = useState<AxisKey>("speed");
+  const [axisKey, setAxisKey] = useState<AxisKey>("strong");
   const axis = AXES.find((a) => a.key === axisKey)!;
   const ranked = rank(axis);
   const top3 = ranked.slice(0, 3);
@@ -125,20 +135,20 @@ export default function RankingPage() {
       </section>
 
       {/* 軸えらび */}
-      <div className="px-4 mt-4 grid grid-cols-4 gap-2">
+      <div className="px-4 mt-4 grid grid-cols-5 gap-1.5">
         {AXES.map((a) => (
           <button
             key={a.key}
             onClick={() => setAxisKey(a.key)}
-            className={`rounded-2xl py-3 text-center font-bold transition-all active:scale-95
+            className={`rounded-2xl py-2.5 text-center font-bold transition-all active:scale-95
               ${
                 a.key === axisKey
                   ? `bg-gradient-to-br ${a.color} text-white shadow-md`
                   : "bg-white text-gray-500 shadow-sm"
               }`}
           >
-            <span className="text-2xl block">{a.emoji}</span>
-            <span className="text-sm mt-0.5 block">{a.label}</span>
+            <span className="text-xl block">{a.emoji}</span>
+            <span className="text-xs mt-0.5 block">{a.label}</span>
           </button>
         ))}
       </div>
