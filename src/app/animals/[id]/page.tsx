@@ -126,27 +126,22 @@ export default async function AnimalDetailPage({
         />
 
         {/* きほんじょうほう */}
-        <section className="bg-white rounded-2xl p-5 shadow-sm">
-          <h2 className="text-base font-bold text-gray-700 mb-4">
+        <section>
+          <h2 className="text-base font-bold text-gray-700 mb-3">
             📋 きほん じょうほう
           </h2>
-          <div className="space-y-3">
-            <InfoRow label="🌍 すむ ばしょ" value={animal.habitatText} />
-            <InfoRow label="🍽️ たべもの" value={animal.dietText} />
-            <InfoRow label="📏 おおきさ" value={animal.sizeText} />
-            <InfoRow label="⚡ はやさ" value={animal.speedText} />
-            <InfoRow label="⚖️ おもさ" value={animal.weightText} />
-            <InfoRow label="⏳ じゅみょう" value={animal.lifespanText} />
-            <InfoRow
-              label="📖 なかま"
-              value={`${animal.classificationClass} / ${animal.classificationFamily}`}
-            />
-            <InfoRow
-              label="🔬 がくめい"
-              value={animal.scientificName}
-              italic
-            />
+          <div className="space-y-2.5">
+            <FactCard tone="emerald" emoji="🌍" label="すむ ばしょ" value={animal.habitatText} />
+            <FactCard tone="orange" emoji="🍽️" label="たべもの" value={animal.dietText} />
+            <FactCard tone="sky" emoji="📏" label="おおきさ" value={animal.sizeText} />
+            <FactCard tone="amber" emoji="⚡" label="はやさ" value={animal.speedText} />
+            <FactCard tone="rose" emoji="⚖️" label="おもさ" value={animal.weightText} />
+            <FactCard tone="violet" emoji="⏳" label="いきる ながさ" value={animal.lifespanText} />
           </div>
+          <p className="text-xs text-gray-400 mt-3 text-center">
+            なかま: {animal.classificationClass} / {animal.classificationFamily}
+            　がくめい: <span className="italic">{animal.scientificName}</span>
+          </p>
         </section>
 
         {/* ひみつ */}
@@ -225,23 +220,38 @@ export default async function AnimalDetailPage({
   );
 }
 
-function InfoRow({
+const FACT_TONES = {
+  emerald: { bg: "bg-emerald-50", chip: "bg-emerald-100", label: "text-emerald-600" },
+  orange: { bg: "bg-orange-50", chip: "bg-orange-100", label: "text-orange-600" },
+  sky: { bg: "bg-sky-50", chip: "bg-sky-100", label: "text-sky-600" },
+  amber: { bg: "bg-amber-50", chip: "bg-amber-100", label: "text-amber-600" },
+  rose: { bg: "bg-rose-50", chip: "bg-rose-100", label: "text-rose-600" },
+  violet: { bg: "bg-violet-50", chip: "bg-violet-100", label: "text-violet-600" },
+} as const;
+
+function FactCard({
+  tone,
+  emoji,
   label,
   value,
-  italic,
 }: {
+  tone: keyof typeof FACT_TONES;
+  emoji: string;
   label: string;
   value: string;
-  italic?: boolean;
 }) {
+  const t = FACT_TONES[tone];
   return (
-    <div className="flex gap-3 items-start">
-      <span className="text-sm text-gray-500 shrink-0 w-28">{label}</span>
+    <div className={`flex items-center gap-3 rounded-2xl px-3.5 py-3 ${t.bg}`}>
       <span
-        className={`text-base text-gray-800 ${italic ? "italic text-sm text-gray-500" : ""}`}
+        className={`shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-2xl ${t.chip}`}
       >
-        {value}
+        {emoji}
       </span>
+      <div className="min-w-0">
+        <p className={`text-xs font-bold ${t.label}`}>{label}</p>
+        <p className="text-base text-gray-800 leading-snug">{value}</p>
+      </div>
     </div>
   );
 }
