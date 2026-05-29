@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,9 +7,41 @@ import { TagBadge } from "@/components/TagBadge";
 import { SoundButton } from "@/components/SoundButton";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { FullscreenImage } from "@/components/FullscreenImage";
+import { ShareButton } from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return animals.map((a) => ({ id: a.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const animal = getAnimalById(id);
+  if (!animal) return { title: "こども動物図鑑" };
+
+  const image = animal.images.find((img) => img.isPrimary) || animal.images[0];
+  const title = `${animal.japaneseName} | こども動物図鑑`;
+  const description = animal.childSecret;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      images: image ? [{ url: image.url }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: image ? [image.url] : undefined,
+    },
+  };
 }
 
 export default async function AnimalDetailPage({
@@ -135,6 +168,12 @@ export default async function AnimalDetailPage({
             {animal.childSecret}
           </p>
         </section>
+
+        {/* おしえる（シェア） */}
+        <ShareButton
+          animalName={animal.japaneseName}
+          secret={animal.childSecret}
+        />
 
         {/* にている どうぶつ */}
         {similarAnimals.length > 0 && (
