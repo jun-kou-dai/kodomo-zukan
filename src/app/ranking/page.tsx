@@ -143,72 +143,71 @@ export default function RankingPage() {
         ))}
       </div>
 
-      {/* 1位（おおきく） */}
-      {top3[0] && (
-        <section className="px-4 mt-6">
-          <Link
-            href={`/animals/${top3[0].animal.id}`}
-            className={`block bg-white rounded-3xl overflow-hidden shadow-lg ring-4 ${axis.ring}
-                        active:scale-[0.98] transition-transform`}
-          >
-            <div className="relative h-56">
-              <Image
-                src={top3[0].animal.images[0]?.url ?? ""}
-                alt={top3[0].animal.japaneseName}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-              <span className="absolute top-3 left-3 text-5xl drop-shadow">
-                🥇
-              </span>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-3">
-                <p className="text-white/80 text-sm font-bold">
-                  {axis.emoji} {axis.topPhrase}
-                </p>
-                <div className="flex items-end justify-between">
-                  <p className="text-white text-2xl font-extrabold">
-                    {top3[0].animal.japaneseName}
+      {/* トップ3（主役。大きく カッコよく） */}
+      <section className="px-4 mt-6 space-y-4">
+        {top3.map((x, i) => {
+          const style = [
+            {
+              h: "h-72",
+              ring: "ring-4 ring-amber-300",
+              name: "text-3xl",
+              val: "text-3xl",
+            },
+            {
+              h: "h-56",
+              ring: "ring-2 ring-slate-300",
+              name: "text-2xl",
+              val: "text-2xl",
+            },
+            {
+              h: "h-52",
+              ring: "ring-2 ring-orange-300",
+              name: "text-2xl",
+              val: "text-2xl",
+            },
+          ][i];
+          return (
+            <Link
+              key={x.animal.id}
+              href={`/animals/${x.animal.id}`}
+              className={`block relative rounded-3xl overflow-hidden shadow-lg ${style.ring}
+                          active:scale-[0.98] transition-transform`}
+            >
+              <div className={`relative ${style.h}`}>
+                <Image
+                  src={x.animal.images[0]?.url ?? ""}
+                  alt={x.animal.japaneseName}
+                  fill
+                  className="object-cover object-[center_25%]"
+                  sizes="100vw"
+                  priority={i === 0}
+                />
+                {/* じゅんい メダル */}
+                <span className="absolute top-3 left-3 text-6xl drop-shadow-lg">
+                  {MEDALS[i]}
+                </span>
+                {/* したの グラデーション＋なまえ・すうじ */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-4 pt-14 pb-4">
+                  {i === 0 && (
+                    <p className="text-white/85 text-sm font-bold mb-1">
+                      {axis.emoji} {axis.topPhrase}
+                    </p>
+                  )}
+                  <p
+                    className={`text-white font-extrabold drop-shadow leading-tight ${style.name}`}
+                  >
+                    {x.animal.japaneseName}
                   </p>
-                  <p className="text-white text-2xl font-extrabold">
-                    {axis.format(top3[0].v)}
+                  <p
+                    className={`text-amber-300 font-extrabold drop-shadow leading-tight mt-0.5 ${style.val}`}
+                  >
+                    {axis.format(x.v)}
                   </p>
                 </div>
               </div>
-            </div>
-          </Link>
-        </section>
-      )}
-
-      {/* 2位・3位 */}
-      <section className="px-4 mt-3 grid grid-cols-2 gap-3">
-        {top3.slice(1).map((x, i) => (
-          <Link
-            key={x.animal.id}
-            href={`/animals/${x.animal.id}`}
-            className="block bg-white rounded-2xl overflow-hidden shadow-sm active:scale-[0.97] transition-transform"
-          >
-            <div className="relative h-32">
-              <Image
-                src={x.animal.images[0]?.url ?? ""}
-                alt={x.animal.japaneseName}
-                fill
-                className="object-cover"
-                sizes="50vw"
-              />
-              <span className="absolute top-2 left-2 text-3xl drop-shadow">
-                {MEDALS[i + 1]}
-              </span>
-            </div>
-            <div className="px-3 py-2">
-              <p className="font-bold text-gray-800">{x.animal.japaneseName}</p>
-              <p className="text-lg font-extrabold text-gray-700">
-                {axis.format(x.v)}
-              </p>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </section>
 
       {/* 4位以降 */}
