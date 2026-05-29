@@ -61,7 +61,7 @@ export function SizeCompare({
       <p className="text-2xl font-extrabold text-emerald-900 leading-snug mb-4">
         {animalName}は きみ{" "}
         <span className="text-emerald-600">やく {ratioText}にんぶん</span>{" "}
-        の たかさ！
+        の おおきさ！
       </p>
 
       <div className="flex items-end justify-center gap-6">

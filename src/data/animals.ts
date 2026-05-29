@@ -3,6 +3,7 @@ import { Animal, ThemeTag } from "@/types/animal";
 export const animals: Animal[] = [
   {
     id: "lion",
+    compareHeightCm: 250,
     scientificName: "Panthera leo",
     japaneseName: "ライオン",
     kanaName: "らいおん",
@@ -188,6 +189,7 @@ export const animals: Animal[] = [
   },
   {
     id: "penguin",
+    compareHeightCm: 120,
     scientificName: "Aptenodytes forsteri",
     japaneseName: "コウテイペンギン",
     kanaName: "こうていぺんぎん",
@@ -252,6 +254,7 @@ export const animals: Animal[] = [
   },
   {
     id: "tiger",
+    compareHeightCm: 300,
     scientificName: "Panthera tigris",
     japaneseName: "トラ",
     kanaName: "とら",
@@ -315,6 +318,7 @@ export const animals: Animal[] = [
   },
   {
     id: "cheetah",
+    compareHeightCm: 150,
     scientificName: "Acinonyx jubatus",
     japaneseName: "チーター",
     kanaName: "ちーたー",
@@ -379,6 +383,7 @@ export const animals: Animal[] = [
   },
   {
     id: "dolphin",
+    compareHeightCm: 300,
     scientificName: "Tursiops truncatus",
     japaneseName: "バンドウイルカ",
     kanaName: "ばんどういるか",
@@ -443,6 +448,7 @@ export const animals: Animal[] = [
   },
   {
     id: "whale",
+    compareHeightCm: 1400,
     scientificName: "Megaptera novaeangliae",
     japaneseName: "ザトウクジラ",
     kanaName: "ざとうくじら",
@@ -507,6 +513,7 @@ export const animals: Animal[] = [
   },
   {
     id: "panda",
+    compareHeightCm: 150,
     scientificName: "Ailuropoda melanoleuca",
     japaneseName: "ジャイアントパンダ",
     kanaName: "じゃいあんとぱんだ",
@@ -562,6 +569,7 @@ export const animals: Animal[] = [
   },
   {
     id: "koala",
+    compareHeightCm: 70,
     scientificName: "Phascolarctos cinereus",
     japaneseName: "コアラ",
     kanaName: "こあら",
@@ -617,6 +625,7 @@ export const animals: Animal[] = [
   },
   {
     id: "gorilla",
+    compareHeightCm: 170,
     scientificName: "Gorilla gorilla",
     japaneseName: "ゴリラ",
     kanaName: "ごりら",
@@ -681,6 +690,7 @@ export const animals: Animal[] = [
   },
   {
     id: "shark",
+    compareHeightCm: 500,
     scientificName: "Carcharodon carcharias",
     japaneseName: "ホオジロザメ",
     kanaName: "ほおじろざめ",
@@ -736,6 +746,7 @@ export const animals: Animal[] = [
   },
   {
     id: "octopus",
+    compareHeightCm: 100,
     scientificName: "Octopus vulgaris",
     japaneseName: "マダコ",
     kanaName: "まだこ",
@@ -790,6 +801,7 @@ export const animals: Animal[] = [
   },
   {
     id: "eagle",
+    compareHeightCm: 250,
     scientificName: "Haliaeetus pelagicus",
     japaneseName: "オオワシ",
     kanaName: "おおわし",
@@ -854,6 +866,7 @@ export const animals: Animal[] = [
   },
   {
     id: "crocodile",
+    compareHeightCm: 500,
     scientificName: "Crocodylus porosus",
     japaneseName: "イリエワニ",
     kanaName: "いりえわに",
