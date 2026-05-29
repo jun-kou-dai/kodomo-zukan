@@ -4,8 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { animals, getAnimalById } from "@/data/animals";
 import { TagBadge } from "@/components/TagBadge";
-import { SoundButton } from "@/components/SoundButton";
-import { VideoPlayer } from "@/components/VideoPlayer";
+import { MediaButtons } from "@/components/MediaButtons";
 import { FullscreenImage } from "@/components/FullscreenImage";
 import { ShareButton } from "@/components/ShareButton";
 
@@ -119,21 +118,12 @@ export default async function AnimalDetailPage({
           {animal.childSummary}
         </p>
 
-        {/* 音 */}
-        {animal.sounds.length > 0 && (
-          <SoundButton
-            sound={animal.sounds[0]}
-            animalName={animal.japaneseName}
-          />
-        )}
-
-        {/* 動画 */}
-        {animal.videos.length > 0 && (
-          <VideoPlayer
-            video={animal.videos[0]}
-            animalName={animal.japaneseName}
-          />
-        )}
+        {/* こえ・うごく すがた */}
+        <MediaButtons
+          sound={animal.sounds[0]}
+          video={animal.videos[0]}
+          animalName={animal.japaneseName}
+        />
 
         {/* きほんじょうほう */}
         <section className="bg-white rounded-2xl p-5 shadow-sm">
