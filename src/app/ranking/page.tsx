@@ -144,7 +144,7 @@ export default function RankingPage() {
       </div>
 
       {/* トップ3（主役。大きく カッコよく） */}
-      <section className="px-4 mt-6 space-y-4">
+      <section className="px-4 mt-6 grid grid-cols-1 gap-4 md:grid-cols-3 md:items-end">
         {top3.map((x, i) => {
           const style = [
             {
@@ -173,7 +173,7 @@ export default function RankingPage() {
               className={`block relative rounded-3xl overflow-hidden shadow-lg ${style.ring}
                           active:scale-[0.98] transition-transform`}
             >
-              <div className={`relative ${style.h}`}>
+              <div className={`relative ${style.h} md:h-80`}>
                 <Image
                   src={x.animal.images[0]?.url ?? ""}
                   alt={x.animal.japaneseName}
@@ -212,7 +212,7 @@ export default function RankingPage() {
 
       {/* 4位以降 */}
       {rest.length > 0 && (
-        <section className="px-4 mt-6">
+        <section className="px-4 mt-6 md:max-w-2xl md:mx-auto">
           <h2 className="text-sm font-bold text-gray-400 mb-2 px-1">
             つづき
           </h2>

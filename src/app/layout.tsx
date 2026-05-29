@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="min-h-dvh">
-        <div className="mx-auto min-h-dvh max-w-[480px] bg-cream shadow-xl">
+        <div className="mx-auto min-h-dvh max-w-5xl bg-cream shadow-xl">
           {children}
         </div>
         <ServiceWorkerRegister />
